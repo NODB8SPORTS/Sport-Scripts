@@ -1,3 +1,6 @@
+'Currently displayed for CAROLINA at Set rng = Range("B7:S7").
+'Range("S7").Select is the location to begin loop for CAROLINA.
+
 Sub Move_Up_BYES()
 
 Dim rng As Range
