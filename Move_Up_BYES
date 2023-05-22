@@ -1,0 +1,32 @@
+Sub Move_Up_BYES()
+
+Dim rng As Range
+Set rng = Range("B7:S7")
+Dim BYES As Integer
+
+BYES = 0
+
+Dim i As Long, Cell As Range
+        'Long length of that range = 18 cells from B19:S19
+        'Display the Cell in that Range
+    
+    Range("S7").Select
+    
+    For i = rng.Cells.Count To 1 Step -1
+        Set Cell = rng.Cells(i)
+        'Cell now refers to each individual cell within the range in reverse order!
+        'Starts at the "Longest" value and decreases by 1 to the first value of range
+    
+    Do While Cell.Offset(0, BYES * -1).Value = "BYE"
+    BYES = BYES + 1
+    Loop
+        
+    ActiveCell.Offset(-1, 26).Select
+    ActiveCell = Cell.Offset(-1, BYES * -1).Value
+        If BYES = (i - 1) Then Exit Sub 'clean exit from loop.
+    ActiveCell.Offset(1, -27).Select
+        'move to new cell. print results and move to next cell from Range
+    
+    Next i
+    
+End Sub
